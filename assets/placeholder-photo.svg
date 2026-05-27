@@ -1,0 +1,14 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="1500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1C1C1C"/>
+      <stop offset="1" stop-color="#121212"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="1340" rx="30" stroke="#C9A96E" stroke-opacity="0.45" stroke-width="3"/>
+  <circle cx="600" cy="630" r="170" fill="#C9A96E" fill-opacity="0.18"/>
+  <path d="M410 970C410 865.066 495.066 780 600 780C704.934 780 790 865.066 790 970V1010H410V970Z" fill="#C9A96E" fill-opacity="0.18"/>
+  <text x="600" y="1120" text-anchor="middle" fill="#F5F0EB" font-size="68" font-family="Georgia, 'Times New Roman', serif">�a Va</text>
+  <text x="600" y="1190" text-anchor="middle" fill="#E8E2DB" font-size="34" font-family="Arial, Helvetica, sans-serif" opacity="0.85">temporary photo placeholder</text>
+</svg>
