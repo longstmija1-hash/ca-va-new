@@ -159,6 +159,158 @@ p {
   padding-inline: 1.1rem;
 }
 
+.mobile-menu-toggle,
+.mobile-menu-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  border-radius: 999px;
+  background: rgba(13, 13, 13, 0.65);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-close:hover {
+  border-color: rgba(201, 169, 110, 0.65);
+  background: rgba(201, 169, 110, 0.08);
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 18px;
+  height: 14px;
+}
+
+.menu-icon span {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: var(--cream);
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.close-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.close-icon::before,
+.close-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 1.5px;
+  background: var(--cream);
+  border-radius: 1px;
+}
+
+.close-icon::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: linear-gradient(180deg, #11151f, #10131b);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.32s ease, visibility 0.32s ease;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-menu-inner {
+  min-height: 100%;
+  padding: 1.15rem 1.15rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(18px);
+  opacity: 0;
+  transition: transform 0.34s ease, opacity 0.34s ease;
+}
+
+.mobile-menu.is-open .mobile-menu-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.mobile-menu-nav {
+  display: grid;
+  gap: 1rem;
+}
+
+.mobile-menu-nav a {
+  font-size: clamp(1.7rem, 7vw, 2.2rem);
+  font-family: "Cormorant Garamond", serif;
+  color: var(--cream);
+}
+
+.mobile-menu-info {
+  margin-top: 2.2rem;
+}
+
+.mobile-menu-info p {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1.08rem;
+}
+
+.mobile-menu-socials {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.mobile-menu-socials a {
+  border: 1px solid rgba(232, 226, 219, 0.28);
+  border-radius: 999px;
+  padding: 0.38rem 0.75rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mobile-menu-bottom {
+  margin-top: auto;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.mobile-menu-phone {
+  color: var(--cream);
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
 .header-phone {
   display: none;
   color: #efe6dc;
@@ -784,6 +936,32 @@ tbody td:last-child {
   padding: 2rem 0 5.4rem;
 }
 
+.mobile-sticky-cta {
+  position: fixed;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  z-index: 60;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-sticky-cta .btn {
+  width: 100%;
+  min-height: 3.45rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  border-radius: 0.85rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.42);
+}
+
+body.mobile-menu-open .mobile-sticky-cta {
+  transform: translateY(120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 .footer-inner {
   display: grid;
   gap: 0.7rem;
@@ -944,6 +1122,11 @@ tbody td:last-child {
     display: flex;
   }
 
+  .mobile-menu-toggle,
+  .mobile-menu {
+    display: none !important;
+  }
+
   .header-phone {
     display: inline-flex;
   }
@@ -954,6 +1137,20 @@ tbody td:last-child {
 
   .gallery-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .mobile-sticky-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .header-cta {
+    display: none;
+  }
+
+  .site-footer {
+    padding-bottom: 7rem;
   }
 }
 
