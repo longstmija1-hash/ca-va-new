@@ -3,27 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ça Va — барбершоп + beauty, Екатеринбург</title>
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <title>Ça Va - барбершоп + beauty, Екатеринбург</title>
     <meta
       name="description"
-      content="Ça Va — барбершоп и beauty пространство в Екатеринбурге. Стрижки, борода, массаж и уход. Онлайн-запись."
+      content="Ça Va - барбершоп и beauty пространство в Екатеринбурге. Стрижки, борода, массаж и уход. Онлайн-запись."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="site-header" id="top">
-      <a class="logo-mark" href="#top" aria-label="На главную">Ça Va</a>
+      <div class="header-bg" aria-hidden="true">
+        <span class="header-bg-pattern"></span>
+        <span class="header-bg-scrim"></span>
+      </div>
+      <a class="logo-wrap" href="#home" aria-label="Ça Va - haircuts & beauty, на главную">
+        <span class="cava-logo" aria-hidden="true">
+          <span class="cava-stack">
+            <span class="cava-ca">Ça</span>
+            <span class="cava-va">Va</span>
+            <span class="cava-bon"><span>bon</span><span>endroit</span></span>
+          </span>
+          <span class="cava-tag">haircuts &amp; beauty</span>
+        </span>
+      </a>
       <nav class="site-nav" aria-label="Основная навигация">
-        <a href="#services">Услуги</a>
-        <a href="#gallery">Атмосфера</a>
-        <a href="#massage">Массаж</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#home">Главная</a>
+        <a href="#team">Команда</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#prices">Прайс</a>
+        <a href="#reviews">Отзывы</a>
       </nav>
       <a class="header-phone" href="tel:+79955638810" aria-label="Позвонить в Ça Va">+7 (995) 563-88-10</a>
       <a class="btn btn-accent header-cta" href="https://n1332782.yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
@@ -35,24 +51,37 @@
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
       <div class="mobile-menu-inner">
         <div class="mobile-menu-top">
-          <a class="logo-mark" href="#top">Ça Va</a>
+          <a class="logo-wrap" href="#home" aria-label="Ça Va - haircuts & beauty, на главную">
+            <span class="cava-logo" aria-hidden="true">
+              <span class="cava-stack">
+                <span class="cava-ca">Ça</span>
+                <span class="cava-va">Va</span>
+                <span class="cava-bon"><span>bon</span><span>endroit</span></span>
+              </span>
+              <span class="cava-tag">haircuts &amp; beauty</span>
+            </span>
+          </a>
           <button class="mobile-menu-close" type="button" aria-label="Закрыть меню">
             <span class="close-icon" aria-hidden="true"></span>
           </button>
         </div>
         <nav class="mobile-menu-nav" aria-label="Мобильная навигация">
-          <a href="#services">Услуги и цены</a>
-          <a href="#gallery">Атмосфера</a>
-          <a href="#massage">Массаж</a>
-          <a href="#contacts">Контакты</a>
+          <a href="#home"><span class="mm-num">01</span><span class="mm-label">Главная</span><span class="mm-arrow" aria-hidden="true">→</span></a>
+          <a href="#team"><span class="mm-num">02</span><span class="mm-label">Команда</span><span class="mm-arrow" aria-hidden="true">→</span></a>
+          <a href="#gallery"><span class="mm-num">03</span><span class="mm-label">Галерея</span><span class="mm-arrow" aria-hidden="true">→</span></a>
+          <a href="#prices"><span class="mm-num">04</span><span class="mm-label">Прайс</span><span class="mm-arrow" aria-hidden="true">→</span></a>
+          <a href="#reviews"><span class="mm-num">05</span><span class="mm-label">Отзывы</span><span class="mm-arrow" aria-hidden="true">→</span></a>
         </nav>
-        <div class="mobile-menu-info">
-          <p>Екатеринбург, Свердлова 62</p>
-          <p>5 минут от м. Уральская</p>
-        </div>
-        <div class="mobile-menu-socials">
-          <a href="https://vk.com/cavabeauty" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
-          <a href="https://www.instagram.com/cava_ekb?igsh=MW5oZmE2ZWtudWd0Zw==" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <div class="mobile-menu-footer">
+          <div class="mobile-menu-info">
+            <span class="mobile-menu-eyebrow">Адрес</span>
+            <p>Екатеринбург, ул. Свердлова, 62</p>
+            <p>5 минут от м. Уральская</p>
+          </div>
+          <div class="mobile-menu-socials">
+            <a href="https://vk.com/cavabeauty" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+            <a href="https://www.instagram.com/cava_ekb?igsh=MW5oZmE2ZWtudWd0Zw==" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
         </div>
         <div class="mobile-menu-bottom">
           <a class="mobile-menu-phone" href="tel:+79955638810">+7 (995) 563-88-10</a>
@@ -62,111 +91,191 @@
     </div>
 
     <main>
-      <section class="hero reveal">
-        <video
-          class="hero-bg"
-          autoplay
-          muted
-          loop
-          playsinline
-          webkit-playsinline
-          preload="auto"
-          defaultMuted
-          poster="assets/photos/eKoFLq_LO7qf6GzBJhM4fE88nTkbWhn9i4owsnEma5QJtE2iNjgUhkgWRl9uzBqKyRSWNnQhrhAd0LJe9o-DHd3I.jpg"
-        >
-          <source src="assets/hero-video.mp4" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="hero-kicker">Barbershop + Beauty · Екатеринбург</p>
-          <h1>Ça Va</h1>
-          <p class="hero-lead">Пространство, где стиль, сервис и внимание к деталям встречаются в одном ритме.</p>
-          <p class="hero-meta">Свердлова 62 · Уральская · Онлайн-запись 24/7</p>
-          <a class="btn btn-accent" href="https://n1332782.yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
-        </div>
-      </section>
-
-      <section class="quick-facts section reveal" aria-label="Преимущества">
-        <div class="container quick-facts-grid">
-          <p>Онлайн-запись 24/7</p>
-          <p>Barbershop + beauty в одном месте</p>
-          <p>5 минут от м. Уральская</p>
-        </div>
-      </section>
-
-      <section class="about section reveal" id="about">
-        <div class="container about-grid">
-          <div>
-            <h2>Ça Va — это не просто стрижка</h2>
-            <p>
-              Это место, где тебя встречают как старого друга: предложат чай,
-              подберут образ под стиль жизни и спокойно подскажут по уходу —
-              без лишней воды и навязчивости. Мы делаем результат, к которому
-              хочется возвращаться.
-            </p>
+      <section class="home" id="home">
+        <div class="hero reveal">
+          <video
+            class="hero-bg"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            defaultMuted
+            poster="assets/photos/eKoFLq_LO7qf6GzBJhM4fE88nTkbWhn9i4owsnEma5QJtE2iNjgUhkgWRl9uzBqKyRSWNnQhrhAd0LJe9o-DHd3I.jpg"
+            aria-hidden="true"
+          >
+            <source src="assets/hero-video.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-overlay" aria-hidden="true"></div>
+          <div class="hero-content content-panel">
+            <p class="hero-kicker">Екатеринбург · barbershop + beauty</p>
+            <h1>Ça Va</h1>
+            <p class="hero-meta">Свердлова 62 · м. Уральская</p>
+            <a class="btn btn-accent" href="https://n1332782.yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
           </div>
-          <img
-            src="assets/photos/1PZ2Bgxe7LSSeBQiPG8mh58XCLQ3b6IYhNbk-LsTU3768zcznnVS9mZBsUv-kYGZsOuyfvuBC0HuzM38QiaTemwj.jpg"
-            alt="Мастер Ça Va за работой"
-            loading="lazy"
-          />
         </div>
-      </section>
 
-      <section class="why-us section reveal" id="why">
-        <div class="container">
-          <h2>Почему выбирают Ça Va</h2>
-          <div class="why-grid">
-            <article class="why-card">
-              <h3>Атмосфера без напряжения</h3>
-              <p>Теплая встреча, комфортный ритм и ощущение, что ты в хорошем месте с первых минут.</p>
-            </article>
-            <article class="why-card">
-              <h3>Точность в деталях</h3>
-              <p>Форма, линии и финальный результат подбираются под твой образ, а не «по шаблону».</p>
-            </article>
-            <article class="why-card">
-              <h3>Комплексный подход</h3>
-              <p>Стрижки, борода, массаж и beauty-уход в одном пространстве без лишней суеты.</p>
-            </article>
-            <article class="why-card">
-              <h3>Советы по уходу</h3>
-              <p>После визита ты получаешь понятные рекомендации, чтобы результат держался дольше.</p>
-            </article>
+        <div class="intro section reveal">
+          <div class="container intro-grid">
+            <div class="intro-text content-panel">
+              <h2>О нас</h2>
+              <div class="intro-placeholder" aria-label="Текст будет добавлен позже">
+                <p>
+                  Здесь будет короткое приветствие - своими словами расскажем, что такое Са Ва
+                  и почему мы так называемся. Без пафоса: как будто объясняем знакомому за чашкой чая.
+                </p>
+              </div>
+              <p class="intro-note">Текст готовим - скоро заменим эту заглушку.</p>
+            </div>
+            <div class="intro-photo-frame content-panel">
+              <img
+                class="intro-photo"
+                src="assets/photos/1PZ2Bgxe7LSSeBQiPG8mh58XCLQ3b6IYhNbk-LsTU3768zcznnVS9mZBsUv-kYGZsOuyfvuBC0HuzM38QiaTemwj.jpg"
+                alt="Ça Va - barbershop + beauty"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="top-services section reveal" id="top-services">
+      <section class="team section reveal" id="team">
         <div class="container">
-          <h2>Топ-услуги</h2>
-          <div class="top-services-grid">
-            <article class="top-service-card">
-              <h3>Стрижка + борода</h3>
-              <p class="top-service-meta">1.5 ч</p>
-              <p class="top-service-price">2 500 ₽</p>
-              <a class="btn btn-accent" href="https://n1332782.yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
+          <h2>Команда</h2>
+          <p class="section-lead">Нажмите на карточку, чтобы узнать о мастере чуть больше.</p>
+          <div class="team-grid" role="list">
+            <article class="team-card" role="listitem" tabindex="0" aria-pressed="false" aria-label="Карточка мастера: Иван">
+              <div class="team-card-inner">
+                <div class="team-card-face team-card-front">
+                  <img src="assets/team/master-1.png" alt="Мастер Иван" loading="lazy" />
+                  <div class="team-card-front-info">
+                    <h3>Иван</h3>
+                    <p>Барбер</p>
+                  </div>
+                  <span class="team-card-flip-hint" aria-hidden="true">Подробнее</span>
+                </div>
+                <div class="team-card-face team-card-back">
+                  <h3>Иван</h3>
+                  <p class="team-card-role">Барбер · топ-мастер</p>
+                  <p class="team-card-bio">Мужские стрижки и моделирование бороды. Любит чёткие линии и аккуратные переходы - приходите за формой, которую легко поддерживать.</p>
+                  <span class="team-card-flip-hint" aria-hidden="true">Назад</span>
+                </div>
+              </div>
             </article>
-            <article class="top-service-card">
-              <h3>Отец и сын</h3>
-              <p class="top-service-meta">2 ч</p>
-              <p class="top-service-price">3 200 ₽</p>
-              <a class="btn btn-accent" href="https://n1332782.yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
+
+            <article class="team-card" role="listitem" tabindex="0" aria-pressed="false" aria-label="Карточка мастера: Данил">
+              <div class="team-card-inner">
+                <div class="team-card-face team-card-front">
+                  <img src="assets/team/master-3.png" alt="Мастер Данил" loading="lazy" />
+                  <div class="team-card-front-info">
+                    <h3>Данил</h3>
+                    <p>Барбер</p>
+                  </div>
+                  <span class="team-card-flip-hint" aria-hidden="true">Подробнее</span>
+                </div>
+                <div class="team-card-face team-card-back">
+                  <h3>Данил</h3>
+                  <p class="team-card-role">Барбер · стрижка и борода</p>
+                  <p class="team-card-bio">Классические и современные мужские стрижки, оформление бороды. Подберёт образ под форму лица и стиль.</p>
+                  <span class="team-card-flip-hint" aria-hidden="true">Назад</span>
+                </div>
+              </div>
             </article>
-            <article class="top-service-card">
-              <h3>Массаж лица «Супер Лифтинг»</h3>
-              <p class="top-service-meta">1 ч</p>
-              <p class="top-service-price">3 500 ₽</p>
-              <a class="btn btn-accent" href="https://n1332782.yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
+
+            <article class="team-card" role="listitem" tabindex="0" aria-pressed="false" aria-label="Карточка мастера: Алексей">
+              <div class="team-card-inner">
+                <div class="team-card-face team-card-front">
+                  <img src="assets/team/master-2.png" alt="Мастер Алексей" loading="lazy" />
+                  <div class="team-card-front-info">
+                    <h3>Алексей</h3>
+                    <p>Массажист</p>
+                  </div>
+                  <span class="team-card-flip-hint" aria-hidden="true">Подробнее</span>
+                </div>
+                <div class="team-card-face team-card-back">
+                  <h3>Алексей</h3>
+                  <p class="team-card-role">Массаж · восстановление</p>
+                  <p class="team-card-bio">Расслабляющий и спортивный массаж, работа со спиной и шеей. Снимет напряжение после рабочей недели и подберёт нагрузку под ваше самочувствие.</p>
+                  <span class="team-card-flip-hint" aria-hidden="true">Назад</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="team-card" role="listitem" tabindex="0" aria-pressed="false" aria-label="Карточка мастера: Валерия">
+              <div class="team-card-inner">
+                <div class="team-card-face team-card-front">
+                  <img src="assets/team/master-4.png" alt="Мастер Валерия" loading="lazy" />
+                  <div class="team-card-front-info">
+                    <h3>Валерия</h3>
+                    <p>Beauty-мастер</p>
+                  </div>
+                  <span class="team-card-flip-hint" aria-hidden="true">Подробнее</span>
+                </div>
+                <div class="team-card-face team-card-back">
+                  <h3>Валерия</h3>
+                  <p class="team-card-role">Brow &amp; beauty · уход</p>
+                  <p class="team-card-bio">Брови, оформление и уход за лицом. Подбирает форму под черты лица и всегда расскажет про домашний уход.</p>
+                  <span class="team-card-flip-hint" aria-hidden="true">Назад</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="team-card" role="listitem" tabindex="0" aria-pressed="false" aria-label="Карточка мастера: Арина">
+              <div class="team-card-inner">
+                <div class="team-card-face team-card-front">
+                  <img src="assets/team/master-5.png" alt="Мастер Арина" loading="lazy" />
+                  <div class="team-card-front-info">
+                    <h3>Арина</h3>
+                    <p>Мастер</p>
+                  </div>
+                  <span class="team-card-flip-hint" aria-hidden="true">Подробнее</span>
+                </div>
+                <div class="team-card-face team-card-back">
+                  <h3>Арина</h3>
+                  <p class="team-card-role">Барбер · beauty</p>
+                  <p class="team-card-bio">Стрижки и оформление образа. Найдёт подход к каждому гостю и сделает работу аккуратно и со вкусом.</p>
+                  <span class="team-card-flip-hint" aria-hidden="true">Назад</span>
+                </div>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="services section reveal" id="services">
+      <section class="gallery section reveal" id="gallery">
         <div class="container">
-          <h2>Услуги и цены</h2>
+          <h2>Галерея</h2>
+          <p class="section-lead">Несколько кадров из зала и с работы мастеров.</p>
+          <div class="gallery-grid">
+            <img src="assets/photos/1PZ2Bgxe7LSSeBQiPG8mh58XCLQ3b6IYhNbk-LsTU3768zcznnVS9mZBsUv-kYGZsOuyfvuBC0HuzM38QiaTemwj.jpg" alt="Интерьер Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
+            <img src="assets/photos/UMw3CNeBqHnvx80HPOi98WK3FfcEQ_ikMlMRWhU8C0u4WE57m94RZgnELNqg0bPA2B3DQW8C_xFnsjJX0Z4KgIix.jpg" alt="Работа мастера Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
+            <img src="assets/photos/UUn86BtZU1NXzS_eUHXbQTO1_mQ-X3iYKBccrT4WNf-gv1WgThslKI0bqWr1Vs5PdVOsErKREd471CnxTIOjc6i2.jpg" alt="Крупный план мужской стрижки" loading="lazy" class="gallery-item" tabindex="0" />
+            <img src="assets/photos/eKoFLq_LO7qf6GzBJhM4fE88nTkbWhn9i4owsnEma5QJtE2iNjgUhkgWRl9uzBqKyRSWNnQhrhAd0LJe9o-DHd3I.jpg" alt="Сервис в Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
+            <img src="assets/photos/jGCUXY8GalZZXr1lAwNEfCCstU-QwbHUU4WwlFkLKYuVgbnaFixHrs132L5Vi0XKHz4ph7JW5TYwTbkxie9Z8If1.jpg" alt="Зона ожидания Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
+            <img src="assets/photos/UMw3CNeBqHnvx80HPOi98WK3FfcEQ_ikMlMRWhU8C0u4WE57m94RZgnELNqg0bPA2B3DQW8C_xFnsjJX0Z4KgIix.jpg" alt="Результат работы мастера" loading="lazy" class="gallery-item" tabindex="0" />
+            <img src="assets/photos/eKoFLq_LO7qf6GzBJhM4fE88nTkbWhn9i4owsnEma5QJtE2iNjgUhkgWRl9uzBqKyRSWNnQhrhAd0LJe9o-DHd3I.jpg" alt="Салон Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
+            <img src="assets/photos/1PZ2Bgxe7LSSeBQiPG8mh58XCLQ3b6IYhNbk-LsTU3768zcznnVS9mZBsUv-kYGZsOuyfvuBC0HuzM38QiaTemwj.jpg" alt="Beauty-процедура в Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
+          </div>
+        </div>
+      </section>
+
+      <div class="lightbox" id="gallery-lightbox" aria-hidden="true">
+        <div class="lightbox-backdrop" data-lightbox-close></div>
+        <button class="lightbox-close" type="button" aria-label="Закрыть" data-lightbox-close>×</button>
+        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Предыдущее фото">‹</button>
+        <figure class="lightbox-content">
+          <img src="" alt="" class="lightbox-image" />
+          <p class="lightbox-hint">Свайпайте влево/вправо</p>
+          <figcaption class="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lightbox-nav lightbox-next" type="button" aria-label="Следующее фото">›</button>
+      </div>
+
+      <section class="services section reveal" id="prices">
+        <div class="container content-panel content-panel--wide">
+          <h2>Прайс</h2>
+          <p class="section-lead">Актуальные цены. Запись - онлайн или по телефону.</p>
           <div class="services-tabs" role="tablist" aria-label="Категории услуг">
             <button class="services-tab is-active" id="tab-haircuts" role="tab" aria-selected="true" aria-controls="panel-haircuts" data-tab="haircuts" type="button">Стрижки</button>
             <button class="services-tab" id="tab-combos" role="tab" aria-selected="false" aria-controls="panel-combos" data-tab="combos" type="button">Комплексы</button>
@@ -287,108 +396,106 @@
         </div>
       </section>
 
-      <section class="cta-band reveal" aria-label="Запись">
-        <div class="container cta-band-inner">
-          <p>Готовы обновить образ? Забронируйте удобное время за пару кликов.</p>
-          <a class="btn btn-accent" href="https://n1332782.yclients.com/" target="_blank" rel="noopener noreferrer">Записаться сейчас</a>
-        </div>
-      </section>
-
-      <section class="gallery section reveal" id="gallery">
+      <section class="reviews section reveal" id="reviews">
         <div class="container">
-          <h2>Атмосфера</h2>
-          <div class="gallery-grid">
-            <img src="assets/photos/1PZ2Bgxe7LSSeBQiPG8mh58XCLQ3b6IYhNbk-LsTU3768zcznnVS9mZBsUv-kYGZsOuyfvuBC0HuzM38QiaTemwj.jpg" alt="Интерьер Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
-            <img src="assets/photos/UMw3CNeBqHnvx80HPOi98WK3FfcEQ_ikMlMRWhU8C0u4WE57m94RZgnELNqg0bPA2B3DQW8C_xFnsjJX0Z4KgIix.jpg" alt="Работа мастера Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
-            <img src="assets/photos/UUn86BtZU1NXzS_eUHXbQTO1_mQ-X3iYKBccrT4WNf-gv1WgThslKI0bqWr1Vs5PdVOsErKREd471CnxTIOjc6i2.jpg" alt="Крупный план мужской стрижки" loading="lazy" class="gallery-item" tabindex="0" />
-            <img src="assets/photos/eKoFLq_LO7qf6GzBJhM4fE88nTkbWhn9i4owsnEma5QJtE2iNjgUhkgWRl9uzBqKyRSWNnQhrhAd0LJe9o-DHd3I.jpg" alt="Сервис в Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
-            <img src="assets/photos/jGCUXY8GalZZXr1lAwNEfCCstU-QwbHUU4WwlFkLKYuVgbnaFixHrs132L5Vi0XKHz4ph7JW5TYwTbkxie9Z8If1.jpg" alt="Зона ожидания Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
-            <img src="assets/photos/UMw3CNeBqHnvx80HPOi98WK3FfcEQ_ikMlMRWhU8C0u4WE57m94RZgnELNqg0bPA2B3DQW8C_xFnsjJX0Z4KgIix.jpg" alt="Результат работы мастера" loading="lazy" class="gallery-item" tabindex="0" />
-            <img src="assets/photos/eKoFLq_LO7qf6GzBJhM4fE88nTkbWhn9i4owsnEma5QJtE2iNjgUhkgWRl9uzBqKyRSWNnQhrhAd0LJe9o-DHd3I.jpg" alt="Атмосфера салона Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
-            <img src="assets/photos/1PZ2Bgxe7LSSeBQiPG8mh58XCLQ3b6IYhNbk-LsTU3768zcznnVS9mZBsUv-kYGZsOuyfvuBC0HuzM38QiaTemwj.jpg" alt="Beauty-процедура в Ça Va" loading="lazy" class="gallery-item" tabindex="0" />
+          <h2>Отзывы</h2>
+          <p class="section-lead">Собираем все отзывы гостей с 2ГИС и Яндекс Карт в одном месте.</p>
+
+          <div class="reviews-summary">
+            <div class="reviews-rating">
+              <span class="reviews-rating-value">5</span>
+              <span class="reviews-stars" aria-hidden="true">★★★★★</span>
+              <span class="reviews-rating-label">средняя оценка гостей</span>
+            </div>
+            <div class="reviews-sources">
+              <a class="reviews-source" href="https://2gis.ru/ekaterinburg/firm/70000001094230814/tab/reviews?m=60.60473%2C56.85518%2F16" target="_blank" rel="noopener noreferrer">
+                <span class="reviews-source-name">2ГИС</span>
+                <span class="reviews-source-score">5 ★</span>
+              </a>
+              <a class="reviews-source" href="https://yandex.ru/maps/org/sa_va/97118654142/reviews/?ll=60.604877%2C56.854818&amp;tab=reviews&amp;z=16.69" target="_blank" rel="noopener noreferrer">
+                <span class="reviews-source-name">Яндекс Карты</span>
+                <span class="reviews-source-score">5 ★</span>
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <div class="lightbox" id="gallery-lightbox" aria-hidden="true">
-        <div class="lightbox-backdrop" data-lightbox-close></div>
-        <button class="lightbox-close" type="button" aria-label="Закрыть" data-lightbox-close>×</button>
-        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Предыдущее фото">‹</button>
-        <figure class="lightbox-content">
-          <img src="" alt="" class="lightbox-image" />
-          <p class="lightbox-hint">Свайпайте влево/вправо</p>
-          <figcaption class="lightbox-caption"></figcaption>
-        </figure>
-        <button class="lightbox-nav lightbox-next" type="button" aria-label="Следующее фото">›</button>
-      </div>
+          <div class="reviews-grid">
+            <figure class="review-card">
+              <div class="review-card-top">
+                <span class="review-avatar" aria-hidden="true">М</span>
+                <div class="review-meta">
+                  <figcaption class="review-author">Мария Кравцова</figcaption>
+                  <span class="review-source-tag">2ГИС</span>
+                </div>
+              </div>
+              <span class="review-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+              <blockquote>Отличное место! Пока стригут мужа, можно и себе сделать красивые бровки. Красивый интерьер, чисто, уютно, приятная музыка. К Валерии советую сходить за бровями - всегда слышит все пожелания. Удобно, что есть своя парковка. Персонал дружелюбный. Всем рекомендую!</blockquote>
+            </figure>
 
-      <section class="visit-flow section reveal" id="visit-flow">
-        <div class="container">
-          <h2>Как проходит визит</h2>
-          <div class="visit-flow-grid">
-            <article class="flow-step">
-              <span class="flow-step-number">01</span>
-              <h3>Онлайн-запись</h3>
-              <p>Выбираешь удобное время на YClients за пару минут без звонков.</p>
-            </article>
-            <article class="flow-step">
-              <span class="flow-step-number">02</span>
-              <h3>Короткая консультация</h3>
-              <p>На месте обсуждаем твой стиль, пожелания и лучший вариант под форму лица.</p>
-            </article>
-            <article class="flow-step">
-              <span class="flow-step-number">03</span>
-              <h3>Услуга с вниманием к деталям</h3>
-              <p>Работаем спокойно и аккуратно, чтобы результат выглядел чисто и естественно.</p>
-            </article>
-            <article class="flow-step">
-              <span class="flow-step-number">04</span>
-              <h3>Рекомендации после визита</h3>
-              <p>Подсказываем, как поддерживать форму и уход дома без лишних сложностей.</p>
-            </article>
+            <figure class="review-card">
+              <div class="review-card-top">
+                <span class="review-avatar" aria-hidden="true">А</span>
+                <div class="review-meta">
+                  <figcaption class="review-author">Андрей Андреев</figcaption>
+                  <span class="review-source-tag">2ГИС</span>
+                </div>
+              </div>
+              <span class="review-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+              <blockquote>Отличное впечатление после стрижки, уютно, есть о чём поговорить с мастером.</blockquote>
+            </figure>
+
+            <figure class="review-card">
+              <div class="review-card-top">
+                <span class="review-avatar" aria-hidden="true">М</span>
+                <div class="review-meta">
+                  <figcaption class="review-author">Матвей Косарев</figcaption>
+                  <span class="review-source-tag">2ГИС</span>
+                </div>
+              </div>
+              <span class="review-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+              <blockquote>Мастер Арина - ТОП! Знает своё дело на 100%. Спасла меня и исправила то, что накосячил другой барбер. Благодарность бесконечная. Рекомендую!</blockquote>
+            </figure>
+
+            <figure class="review-card">
+              <div class="review-card-top">
+                <span class="review-avatar" aria-hidden="true">М</span>
+                <div class="review-meta">
+                  <figcaption class="review-author">Михаил Колесников</figcaption>
+                  <span class="review-source-tag">Яндекс</span>
+                </div>
+              </div>
+              <span class="review-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+              <blockquote>Отличный барбершоп с отличным интерьером. Сотрудники выполнили работу на высочайшем уровне. Был и на мужском маникюре у Софии, и на стрижке у топ-барбера Ивана. Спасибо Софии за качественный маникюр и позитивный настрой, а Ивану - за идеальную стрижку, именно такую, как я хотел.</blockquote>
+            </figure>
+
+            <figure class="review-card">
+              <div class="review-card-top">
+                <span class="review-avatar" aria-hidden="true">Н</span>
+                <div class="review-meta">
+                  <figcaption class="review-author">Николай Третьяков</figcaption>
+                  <span class="review-source-tag">2ГИС</span>
+                </div>
+              </div>
+              <span class="review-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+              <blockquote>Впервые посетил данный салон, спасибо Ивану за стрижку - всё было на высшем уровне, учёл все пожелания. Обязательно приду ещё!</blockquote>
+            </figure>
+
+            <figure class="review-card">
+              <div class="review-card-top">
+                <span class="review-avatar" aria-hidden="true">А</span>
+                <div class="review-meta">
+                  <figcaption class="review-author">Арина К.</figcaption>
+                  <span class="review-source-tag">Яндекс</span>
+                </div>
+              </div>
+              <span class="review-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+              <blockquote>Посетила салон для коррекции и оформления бровей. Мастер Лера очень приятная девушка, выполнила работу красиво и аккуратно, и при этом приятный собеседник. Я довольна результатом! Сам салон светлый, приятный, эстетичный, удобное местоположение. Всем советую!</blockquote>
+            </figure>
           </div>
-        </div>
-      </section>
 
-      <section class="manifest section reveal" id="manifest">
-        <div class="container">
-          <h2>Философия Ça Va</h2>
-          <p>
-            Мы верим, что хороший сервис — это не формальность, а уважение к человеку.
-            Поэтому в Ça Va важны не только техника и форма, но и ощущение комфорта в каждом моменте:
-            от первого приветствия до финального штриха.
-          </p>
-          <p>
-            Наша задача — сделать так, чтобы ты выходил из салона с уверенностью, спокойствием
-            и четким ощущением: «всё хорошо».
-          </p>
-        </div>
-      </section>
-
-      <section class="faq section reveal" id="faq">
-        <div class="container">
-          <h2>FAQ</h2>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary>Нужно ли мыть голову перед визитом?</summary>
-              <p>Специально не нужно. Мы подготовим волосы перед работой в салоне.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Можно ли прийти с ребенком на детскую стрижку?</summary>
-              <p>Да, конечно. Подберем комфортный формат и время, чтобы ребенку было спокойно.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Как часто обновлять стрижку?</summary>
-              <p>Обычно раз в 3–5 недель. Точный интервал зависит от длины и желаемой формы.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Можно ли записаться на комплекс в один визит?</summary>
-              <p>Да, для этого и предусмотрены комплексы: удобно и по времени, и по результату.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Если опаздываю, запись сгорит?</summary>
-              <p>Лучше заранее предупредить по телефону — постараемся сохранить визит или перенести.</p>
-            </details>
+          <div class="reviews-cta-wrap">
+            <a class="btn btn-accent" href="https://yandex.ru/maps/org/97118654142" target="_blank" rel="noopener noreferrer">Все отзывы на Яндекс Картах</a>
+            <a class="btn btn-accent" href="https://2gis.ru/" target="_blank" rel="noopener noreferrer">Отзывы в 2ГИС</a>
           </div>
         </div>
       </section>
@@ -422,7 +529,16 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <a class="logo-mark" href="#top">Ça Va</a>
+        <a class="logo-wrap" href="#home" aria-label="Ça Va - haircuts & beauty, на главную">
+          <span class="cava-logo" aria-hidden="true">
+            <span class="cava-stack">
+              <span class="cava-ca">Ça</span>
+              <span class="cava-va">Va</span>
+              <span class="cava-bon"><span>bon</span><span>endroit</span></span>
+            </span>
+            <span class="cava-tag">haircuts &amp; beauty</span>
+          </span>
+        </a>
         <p>© 2026 Ça Va · Екатеринбург</p>
         <div class="socials">
           <a href="https://vk.com/cavabeauty" target="_blank" rel="noopener noreferrer">ВК</a>
@@ -469,21 +585,15 @@
       });
 
       const syncTabWithHash = () => {
-        if (window.location.hash === "#massage") activateServicesTab("massage");
+        const hash = window.location.hash;
+        if (hash === "#massage") {
+          activateServicesTab("massage");
+          document.getElementById("prices")?.scrollIntoView({ behavior: "smooth" });
+        }
       };
 
       syncTabWithHash();
       window.addEventListener("hashchange", syncTabWithHash);
-
-      const faqItems = document.querySelectorAll(".faq-item");
-      faqItems.forEach((item) => {
-        item.addEventListener("toggle", () => {
-          if (!item.open) return;
-          faqItems.forEach((other) => {
-            if (other !== item) other.open = false;
-          });
-        });
-      });
 
       const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
       const lightbox = document.getElementById("gallery-lightbox");
@@ -570,6 +680,21 @@
         if (event.key === "Escape") closeLightbox();
         if (event.key === "ArrowLeft") showPrevImage();
         if (event.key === "ArrowRight") showNextImage();
+      });
+
+      const teamCards = document.querySelectorAll(".team-card");
+      teamCards.forEach((card) => {
+        const toggleFlip = () => {
+          const flipped = card.classList.toggle("is-flipped");
+          card.setAttribute("aria-pressed", String(flipped));
+        };
+        card.addEventListener("click", toggleFlip);
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleFlip();
+          }
+        });
       });
 
       const mobileMenu = document.getElementById("mobile-menu");
