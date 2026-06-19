@@ -779,6 +779,20 @@ p {
   padding: 1.5rem 1.35rem;
 }
 
+.intro-lead {
+  margin: 0 0 1rem;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--text-heading);
+}
+
+.intro-text p:not(.intro-lead) {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
 .intro-photo-frame {
   padding: 0.65rem;
   overflow: hidden;
