@@ -1,0 +1,17 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A1A1A"/>
+      <stop offset="1" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="320" y1="220" x2="1600" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9A96E" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#C9A96E" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect x="140" y="140" width="1640" height="800" rx="32" stroke="#C9A96E" stroke-opacity="0.35"/>
+  <rect x="230" y="220" width="1460" height="640" rx="24" fill="url(#accent)"/>
+  <text x="960" y="520" text-anchor="middle" fill="#F5F0EB" font-size="120" font-family="Georgia, 'Times New Roman', serif">�a Va</text>
+  <text x="960" y="590" text-anchor="middle" fill="#E8E2DB" font-size="38" font-family="Arial, Helvetica, sans-serif" opacity="0.9">temporary hero placeholder</text>
+</svg>

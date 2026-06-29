@@ -1,0 +1,24 @@
+{
+  "name": "ca-va",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run fetch-reviews && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "fetch-reviews": "node scripts/fetch-reviews.mjs"
+  },
+  "dependencies": {
+    "next": "^15.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
+    "cheerio": "^1.2.0",
+    "typescript": "^5.8.3"
+  }
+}

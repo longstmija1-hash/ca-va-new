@@ -1,20 +1,34 @@
 # Ça Va — сайт-визитка
 
-Одностраничный лендинг барбершопа + beauty в Екатеринбурге.
+Одностраничный лендинг барбершопа + beauty в Екатеринбурге. Собран на **Next.js** (App Router, static export).
 
 ## Запуск локально
 
 ```bash
-python3 -m http.server 5500
+npm install
+npm run dev
 ```
 
-Откройте [http://localhost:5500](http://localhost:5500)
+Откройте [http://localhost:3000](http://localhost:3000)
+
+## Сборка
+
+```bash
+npm run build
+```
+
+Статика попадает в папку `out/`. Для GitHub Pages (`/ca-va-new`):
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/ca-va-new npm run build
+```
 
 ## Структура
 
-- `index.html` — разметка
-- `style.css` — стили
-- `assets/` — видео и фотографии
+- `app/` — страницы и глобальные стили
+- `components/` — секции сайта
+- `lib/site-data.ts` — контент (команда, отзывы, прайс)
+- `public/assets/` — фото, видео, логотип
 
 ## Онлайн-запись
 
