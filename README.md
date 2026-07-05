@@ -17,7 +17,9 @@ npm run dev
 npm run build
 ```
 
-Статика попадает в папку `out/`. Для GitHub Pages (`/ca-va-new`):
+Статика попадает в папку `out/`. Деплой на GitHub Pages с доменом **ca-va.online** — без base path.
+
+Если нужна сборка в подпапку (например `/ca-va-new` на github.io):
 
 ```bash
 NEXT_PUBLIC_BASE_PATH=/ca-va-new npm run build
