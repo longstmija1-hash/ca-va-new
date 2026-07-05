@@ -44,11 +44,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No review changes to commit"
           else
-            git commit -m "$(cat <<'EOF'
-chore: обновить отзывы с 2ГИС и Яндекса
-
-EOF
-)"
+            git commit -m "chore: обновить отзывы с 2ГИС и Яндекса"
             git push
           fi
 
