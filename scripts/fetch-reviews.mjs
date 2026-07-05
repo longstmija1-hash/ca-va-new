@@ -1,4 +1,4 @@
-import { writeFileSync, readFileSync, existsSync } from "node:fs";
+import { writeFileSync, readFileSync, existsSync, appendFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as cheerio from "cheerio";
@@ -13,6 +13,8 @@ const YANDEX_URL =
 
 const LIMIT = 3;
 const USER_AGENT = "Mozilla/5.0";
+const MIN_HTML_BYTES = 50_000;
+const FETCH_ATTEMPTS = 3;
 
 const MONTHS = {
   января: 0,
@@ -72,17 +74,48 @@ function dedupeReviews(reviews) {
   });
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function fetchHtml(url) {
   const response = await fetch(url, {
     headers: {
       "User-Agent": USER_AGENT,
       "Accept-Language": "ru-RU,ru;q=0.9",
+      Accept: "text/html,application/xhtml+xml",
     },
+    redirect: "follow",
   });
   if (!response.ok) {
     throw new Error(`HTTP ${response.status} for ${url}`);
   }
   return response.text();
+}
+
+async function fetchHtmlWithRetry(url) {
+  let lastError;
+
+  for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt += 1) {
+    try {
+      const html = await fetchHtml(url);
+      if (html.length < MIN_HTML_BYTES) {
+        throw new Error(
+          `Response too small (${html.length} bytes), likely blocked`,
+        );
+      }
+      return html;
+    } catch (error) {
+      lastError = error;
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn(`Attempt ${attempt}/${FETCH_ATTEMPTS} failed for ${url}: ${message}`);
+      if (attempt < FETCH_ATTEMPTS) {
+        await sleep(2000 * attempt);
+      }
+    }
+  }
+
+  throw lastError;
 }
 
 async function fetch2GisViaApi() {
@@ -116,9 +149,7 @@ async function fetch2GisViaApi() {
         avatar: avatarFromAuthor(author),
         text,
         date: item.date_created ?? item.created_at ?? "",
-        sortKey: item.date_created
-          ? Date.parse(item.date_created)
-          : 0,
+        sortKey: item.date_created ? Date.parse(item.date_created) : 0,
       };
     })
     .filter(Boolean)
@@ -128,7 +159,7 @@ async function fetch2GisViaApi() {
 }
 
 async function fetch2GisViaHtml() {
-  const html = await fetchHtml(GIS_URL);
+  const html = await fetchHtmlWithRetry(GIS_URL);
   const $ = cheerio.load(html);
   const reviews = [];
 
@@ -162,13 +193,17 @@ async function fetch2GisViaHtml() {
     });
   });
 
+  if (reviews.length === 0) {
+    throw new Error("2GIS HTML parsed 0 reviews");
+  }
+
   return dedupeReviews(reviews)
     .slice(0, LIMIT)
     .map(({ sortKey: _sortKey, date: _date, ...review }) => review);
 }
 
 async function fetchYandexReviews() {
-  const html = await fetchHtml(YANDEX_URL);
+  const html = await fetchHtmlWithRetry(YANDEX_URL);
   const $ = cheerio.load(html);
   const reviews = [];
 
@@ -189,6 +224,10 @@ async function fetchYandexReviews() {
     });
   });
 
+  if (reviews.length === 0) {
+    throw new Error("Yandex HTML parsed 0 reviews");
+  }
+
   return dedupeReviews(reviews)
     .sort((a, b) => b.sortKey - a.sortKey)
     .slice(0, LIMIT)
@@ -202,10 +241,8 @@ async function fetchAllReviews() {
     fetchYandexReviews(),
   ]);
 
-  const gis =
-    gisResult.status === "fulfilled" ? gisResult.value : [];
-  const yandex =
-    yandexResult.status === "fulfilled" ? yandexResult.value : [];
+  const gis = gisResult.status === "fulfilled" ? gisResult.value : [];
+  const yandex = yandexResult.status === "fulfilled" ? yandexResult.value : [];
 
   if (gisResult.status === "rejected") {
     console.warn("2GIS fetch failed:", gisResult.reason);
@@ -227,7 +264,14 @@ function pickReviews(gis, yandex, existing) {
   const yandexReviews =
     yandex.length >= LIMIT ? yandex : existingYandex.slice(0, LIMIT);
 
-  return [...gisReviews, ...yandexReviews];
+  return {
+    reviews: [...gisReviews, ...yandexReviews],
+    usedFallback: {
+      gis: gis.length < LIMIT,
+      yandex: yandex.length < LIMIT,
+    },
+    counts: { gis: gis.length, yandex: yandex.length },
+  };
 }
 
 function loadExisting() {
@@ -239,12 +283,32 @@ function loadExisting() {
   }
 }
 
+function writeGithubSummary(payload, meta) {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath) return;
+
+  const lines = [
+    "## Reviews fetch",
+    "",
+    `- **Fetched at:** ${payload.fetchedAt}`,
+    `- **2ГИС:** ${meta.counts.gis} fetched${meta.usedFallback.gis ? " (fallback)" : ""}`,
+    `- **Яндекс:** ${meta.counts.yandex} fetched${meta.usedFallback.yandex ? " (fallback)" : ""}`,
+    "",
+    "### Cards on site",
+    ...payload.reviews.map(
+      (review) => `- **${review.source}** — ${review.author}`,
+    ),
+  ];
+
+  appendFileSync(summaryPath, `${lines.join("\n")}\n`, "utf8");
+}
+
 async function main() {
   const existing = loadExisting();
 
   try {
     const { gis, yandex } = await fetchAllReviews();
-    const reviews = pickReviews(gis, yandex, existing);
+    const { reviews, usedFallback, counts } = pickReviews(gis, yandex, existing);
 
     if (reviews.length < LIMIT * 2) {
       throw new Error(
@@ -258,13 +322,34 @@ async function main() {
     };
 
     writeFileSync(OUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+    writeGithubSummary(payload, { usedFallback, counts });
+
+    const fallbackNote =
+      usedFallback.gis || usedFallback.yandex
+        ? ` (fallback: ${[
+            usedFallback.gis ? "2ГИС" : null,
+            usedFallback.yandex ? "Яндекс" : null,
+          ]
+            .filter(Boolean)
+            .join(", ")})`
+        : "";
+
     console.log(
-      `Saved ${reviews.length} reviews (${gis.length} 2GIS, ${yandex.length} Yandex)`,
+      `Saved ${reviews.length} reviews (${counts.gis} 2GIS, ${counts.yandex} Yandex)${fallbackNote}`,
     );
+
+    if (process.env.CI === "true" && (usedFallback.gis || usedFallback.yandex)) {
+      console.warn(
+        "::warning:: Some review sources used cached fallback on CI. Check if 2GIS/Yandex block GitHub runners.",
+      );
+    }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     if (existing?.reviews?.length) {
       console.warn(`fetch-reviews: ${message}; keeping existing file`);
+      if (process.env.CI === "true") {
+        console.warn("::warning:: Review fetch failed completely; deploying cached reviews.");
+      }
       return;
     }
     console.error(`fetch-reviews failed: ${message}`);

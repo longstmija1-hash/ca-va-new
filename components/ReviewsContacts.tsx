@@ -1,4 +1,4 @@
-import { DISPLAY_REVIEWS } from "@/lib/reviews";
+import { DISPLAY_REVIEWS, REVIEWS_UPDATED_AT } from "@/lib/reviews";
 import {
   BOOKING_URL,
   PHONE,
@@ -7,6 +7,14 @@ import {
   SOCIAL,
 } from "@/lib/site-data";
 import { Reveal } from "./Reveal";
+
+function formatReviewsUpdatedAt(value: string) {
+  return new Date(value).toLocaleDateString("ru-RU", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
 export function ReviewsContacts() {
   return (
@@ -18,6 +26,11 @@ export function ReviewsContacts() {
             <p className="section-lead">
               Собираем все отзывы гостей с 2ГИС и Яндекс Карт в одном месте.
             </p>
+            {REVIEWS_UPDATED_AT ? (
+              <p className="reviews-updated">
+                Обновлено {formatReviewsUpdatedAt(REVIEWS_UPDATED_AT)}
+              </p>
+            ) : null}
 
             <div className="reviews-summary">
               <div className="reviews-rating">

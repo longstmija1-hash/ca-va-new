@@ -14,10 +14,10 @@ npm run dev
 ## Сборка
 
 ```bash
-npm run build
+npm run build:site
 ```
 
-Статика попадает в папку `out/`. Деплой на GitHub Pages с доменом **ca-va.online** — без base path.
+Для локальной разработки достаточно `npm run build` — отзывы подтянутся в CI перед деплоем.
 
 Если нужна сборка в подпапку (например `/ca-va-new` на github.io):
 

@@ -951,6 +951,12 @@ p {
   background: var(--bg-soft);
 }
 
+.reviews-updated {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
 .reviews-summary {
   display: flex;
   flex-wrap: wrap;

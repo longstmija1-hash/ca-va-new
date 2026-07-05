@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -31,6 +31,26 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Fetch latest reviews
+        run: npm run fetch-reviews
+
+      - name: Commit refreshed reviews
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lib/reviews-fetched.json
+          if git diff --staged --quiet; then
+            echo "No review changes to commit"
+          else
+            git commit -m "$(cat <<'EOF'
+chore: обновить отзывы с 2ГИС и Яндекса
+
+EOF
+)"
+            git push
+          fi
 
       - name: Build static site
         run: npm run build

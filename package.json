@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run fetch-reviews && next build",
+    "build": "next build",
+    "build:site": "npm run fetch-reviews && next build",
     "start": "next start",
     "lint": "next lint",
     "fetch-reviews": "node scripts/fetch-reviews.mjs"
