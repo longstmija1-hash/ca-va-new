@@ -40,6 +40,15 @@ export default function RootLayout({
 
   return (
     <html lang="ru" style={cssVars}>
+      <head>
+        <meta httpEquiv="refresh" content="0; url=https://ca-va.promo/" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "location.replace('https://ca-va.promo'+location.pathname+location.search+location.hash)",
+          }}
+        />
+      </head>
       <body className={`${inter.className} ${playfair.variable}`}>{children}</body>
     </html>
   );
